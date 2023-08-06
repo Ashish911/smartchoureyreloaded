@@ -500,7 +500,7 @@ export const assignSiteSpaceFunction = (id, siteName, siteStorage) => async (dis
         };
 
         const { data } = await axios.post(
-            apiUrl + 'api/SiteSpace/aggregateSiteSpacesInsertOrUpdate?siteId=' + id + '&space=' + siteStorage,
+            apiUrl + 'api/SiteSpace/aggregateSiteSpacesAssign?siteId=' + id + '&space=' + siteStorage,
             {
                 siteId: id,
                 space: siteStorage

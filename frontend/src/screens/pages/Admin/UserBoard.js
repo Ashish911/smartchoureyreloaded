@@ -146,7 +146,7 @@ function Card ({ data, type }){
         <div className='flex flex-wrap p-4 ml-2'>
             {data?.map(item => {
                 return (
-                    <div class="flex justify-center my-4">
+                    <div class="flex justify-center my-4 mx-1">
                         <div class="w-80 p-5 rounded-md shadow-xl bg-white">
                             {item?.url ? <img src={item?.url} className='max-h-52 w-full' alt="Image"/> : 'No Image'}
                             <div className='flex justify-between'>
