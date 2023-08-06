@@ -29,3 +29,122 @@ body{
 .sidebar-item:hover {
  color:#a1a0a0;
 }
+
+.ql-toolbar {
+  background-color: white;
+}
+
+.ql-container {
+  background-color: white;
+}
+
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  z-index: 9999; 
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.global-table::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.global-table::-webkit-scrollbar-track {
+  background-color: #ffffff;
+}
+
+.global-table::-webkit-scrollbar-thumb {
+  background-color: #1F98C3;
+}
+
+.global-table::-webkit-scrollbar-thumb:hover {
+  background-color: #257a96;
+}
+
+.heightChange {
+  height: 730px;
+}
+
+.places-container {
+  position: relative;
+  top: 35px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  width: 300px;
+}
+
+.combobox-input {
+  border-radius: 5px;
+  height: 30px;
+  padding: 8px;
+}
+
+@media only screen and (max-width: 400px){
+  .customizableProfile {
+    margin-left: none;
+  }
+
+  .customizableQr {
+    margin-left: none;
+  }
+
+  #photoSection {
+    flex-direction: column;
+  }
+
+}
+@media only screen and (max-width: 450px) and (min-width: 401px){
+  .customizableProfile {
+    margin-left: 15%;
+  }
+
+  .customizableQr {
+    margin-left: 15%;
+  }
+}
+@media only screen and (max-width: 500px) and (min-width: 451px){
+  .customizableProfile {
+    margin-left: 20%;
+  }
+
+  .customizableQr {
+    margin-left: 20%;
+  }
+}
+@media only screen and (max-width: 600px) and (min-width: 501px){
+  .customizableProfile {
+    margin-left: 25%;
+  }
+
+  .customizableQr {
+    margin-left: 25%;
+  }
+}
+@media only screen and (max-width: 1026px) and (min-width: 601px){
+  .customizableProfile {
+    margin-left: 30%;
+  }
+
+  .customizableQr {
+    margin-left: 30%;
+  }
+}
+
+#none {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.3s linear;
+}
+
+#onHover:hover #none {
+  visibility: visible;
+  opacity: 1;
+}

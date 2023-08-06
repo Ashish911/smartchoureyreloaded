@@ -1,10 +1,16 @@
 import React,{ useEffect, useMemo, useState } from 'react'
 import { useGlobalFilter, useSortBy, useTable } from 'react-table'
 import { FaSortDown, FaSortUp, FaSort, FaSearch } from "react-icons/fa";
+import { CiCircleRemove } from "react-icons/ci"
+import { useTranslation } from 'react-i18next'
+import { utils, write } from 'xlsx';
+import { MdOutlineAssignmentTurnedIn } from 'react-icons/md'
 
 const GlobalFilter = ({globalFilter, setGlobalFilter}) => {
+    const {t} = useTranslation()
+    
     return(
-        <input type="text" placeholder="Search" 
+        <input type="text" placeholder={t('Search')}
         value = {globalFilter}
         onChange={e => {
             setGlobalFilter(e.target.value)
@@ -14,14 +20,134 @@ const GlobalFilter = ({globalFilter, setGlobalFilter}) => {
     )
 }
 
-const GlobalTable = ({columns, data, createText, createFunction, enableDetail, detailFunction, fileName, sheetName}) => {
+const GlobalTable = ({columns, data, createText, createFunction, enableDetail, detailFunction, enableEdit, editFunction, fileName, sheetName, enableDelete, deleteFunction, enableAssign, assignFunction}) => {
 
-    // const { onDownload } = useDownloadExcel({
-    //     currentTableRef: tableRef.current,
-    //     filename: fileName,
-    //     sheet: sheetName
-    // })
+    const {t} = useTranslation()
 
+    let mandatoryColumns = []
+
+    if (enableEdit == true) {
+        mandatoryColumns.push({
+            id: 'edit',
+            Header: () => (
+                <a>
+                        {t('Edit')}
+                </a>
+            ),
+            Cell: ({row}) => (
+                <a onClick={() => {
+                    editFunction(row)
+                }}
+                className="inline-flex items-center justify-center px-4 py-1 space-x-1 
+                bg-gray-200 rounded-md shadow hover:bg-opacity-20">
+                    <FaSearch />
+                    <span>{t('Edit')}</span>
+                </a>
+            ),
+            width: 60
+        })
+    }
+
+    if (enableDetail == true) {
+        mandatoryColumns.push({
+            id: 'details',
+            Header: () => (
+                <a>
+                        {t('Detail')}
+                </a>
+            ),
+            Cell: ({row}) => (
+                <a onClick={() => {
+                    detailFunction(row)
+                }}
+                className="inline-flex items-center justify-center px-4 py-1 space-x-1 
+                bg-gray-200 rounded-md shadow hover:bg-opacity-20">
+                    <FaSearch />
+                    <span>{t('Detail')}</span>
+                </a>
+            ),
+            width: 60
+        })
+    }
+
+    if (enableAssign == true) {
+        mandatoryColumns.push({
+            id: 'assign',
+            Header: () => (
+                <a>
+                    {t('Assign')}
+                </a>
+            ),
+            Cell: ({row}) => (
+                <a onClick={() => {
+                    assignFunction(row)
+                }}
+                className="inline-flex items-center justify-center px-4 py-1 space-x-1 
+                bg-gray-200 rounded-md shadow hover:bg-opacity-20">
+                    <MdOutlineAssignmentTurnedIn />
+                    <span>{t('Assign')}</span>
+                </a>
+            ),
+            width: 60
+        })
+    }
+
+    if (enableDelete == true) {
+        mandatoryColumns.push({
+            id: 'delete',
+            Header: () => (
+                <a>
+                    {t('Delete')}
+                </a>
+            ),
+            Cell: ({row}) => (
+                <a onClick={() => {
+                    deleteFunction(row)
+                }}
+                className="inline-flex items-center justify-center px-4 py-1 space-x-1 
+                bg-gray-200 rounded-md shadow hover:bg-opacity-20">
+                    <CiCircleRemove />
+                    <span>{t('Delete')}</span>
+                </a>
+            ),
+            width: 60
+        })
+    } 
+
+
+    const onDownload = () => {
+
+    // Get the data from your React table
+    const tableData = rows.map(row => row.original);
+
+    // Create a new workbook and worksheet
+    const workbook = utils.book_new();
+    const worksheet = utils.json_to_sheet(tableData);
+
+    // Add the worksheet to the workbook
+    utils.book_append_sheet(workbook, worksheet, 'Sheet 1');
+
+    // Convert the workbook to a binary string
+    const excelData = write(workbook, { bookType: 'xlsx', type: 'binary' });
+
+    // Create a Blob object from the binary string
+    const blob = new Blob([s2ab(excelData)], { type: 'application/octet-stream' });
+
+    // Create a download link and trigger the download
+    const downloadLink = document.createElement('a');
+    downloadLink.href = URL.createObjectURL(blob);
+    downloadLink.download = 'tableData.xlsx';
+    downloadLink.click();
+    }
+
+    const s2ab = (s) => {
+        const buf = new ArrayBuffer(s.length);
+        const view = new Uint8Array(buf);
+        for (let i = 0; i < s.length; i++) {
+            view[i] = s.charCodeAt(i) & 0xff;
+        }
+        return buf;
+    };
 
     const {
     getTableProps,
@@ -51,28 +177,9 @@ const GlobalTable = ({columns, data, createText, createFunction, enableDetail, d
         useGlobalFilter,
         useSortBy,
         hooks => {
-            enableDetail ? 
             hooks.visibleColumns.push(columns => [
                 ...columns,
-                { 
-                    id: 'details',
-                    Header: () => (
-                        <a>
-                                Detail
-                        </a>
-                    ),
-                    Cell: ({row}) => (
-                        <a onClick={detailFunction}
-                        className="inline-flex items-center justify-center px-4 py-1 space-x-1 
-                        bg-gray-200 rounded-md shadow hover:bg-opacity-20">
-                            <FaSearch />
-                            <span>Detail</span>
-                        </a>
-                    ),
-                    width: 60
-                } 
-            ]) : hooks.visibleColumns.push(columns => [
-                ...columns
+                ...mandatoryColumns
             ])
         }
     )
@@ -84,16 +191,13 @@ const GlobalTable = ({columns, data, createText, createFunction, enableDetail, d
                     globalFilter={state.globalFilter}
                     setGlobalFilter= {setGlobalFilter}
                 />
-                {/* {sheetName != undefined
-                ? 
+                {sheetName &&
                     <a
                     className="inline-flex items-center justify-center px-4 py-1 space-x-1 
-                    bg-gray-200 rounded-md shadow hover:bg-opacity-20" onClick={onDownload}>
+                    bg-gray-200 rounded-md shadow hover:bg-opacity-20 cursor-pointer" onClick={onDownload}>
                         <span>Download</span>
                     </a>
-                :
-                    ''
-                } */}
+                }
                 {createText != undefined
                 ? 
                     <a
@@ -106,9 +210,9 @@ const GlobalTable = ({columns, data, createText, createFunction, enableDetail, d
                 }
             </div>
             <div className="flex flex-col">
-                <div className="overflow-x-auto">
+                <div>
                     <div className="p-1.5 w-full inline-block align-middle">
-                        <div className="overflow-hidden border rounded-lg">
+                        <div className="border rounded-lg overflow-x-auto global-table">
                             <table {...getTableProps()} className="min-w-full divide-y divide-gray-200">
                             <thead className='bg-gray-50'>
                             {headerGroups.map(headerGroup => (
@@ -144,7 +248,6 @@ const GlobalTable = ({columns, data, createText, createFunction, enableDetail, d
                                     {row.cells.map(cell => {
                                     return (
                                         <td
-                                        onClick={() => console.log(cell)}
                                         {...cell.getCellProps()}
                                         className="px-6 py-4 text-sm text-gray-800 whitespace-nowrap"
                                         >

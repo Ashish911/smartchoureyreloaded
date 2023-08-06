@@ -77,6 +77,115 @@
         "1": "Send Email"
     }, 
     "Site Detail": {
-        "1": "Stie Detail"
-    }
+        "1": "Site Detail"
+    },
+    "Dashboard": {
+        "1": "Dashboard"
+    },
+    "User Board": {
+        "1": "User Board"
+    },
+    "Menu Name": {
+        "1": "Menu Name"
+    },
+    "Safety Declaration": {
+        "1": "Safety Declaration"
+    },
+    "Report": {
+        "1": "Report"
+    },
+    "CHOUREY Print": {
+        "1": "Chourey Print"
+    },
+    "Sub Admin": {
+        "1": "Sub Admin"
+    },
+    "Site Code Registration": "Site Code Registration",
+    "Site Code Information": "Site Code Information",
+    "Create Site": "Create Site",
+    "Chourey 1": "Chourey 1",
+    "Chourey 2": "Chourey 2",
+    "Disaster": "Disaster",
+    "Update": "Update",
+    "User Access": "User Access",
+    "Smartphone: User Access": "Smartphone: User Access",
+    "SP: Safety Declaration": "SP: Safety Declaration",
+    "Operation Log": "Operation Log",
+    "Search": "Search",
+    "Device Mapping": {
+        "1": "Device Mapping"
+    },
+    "Sites Storage": {
+        "1": "Sites Storage"
+    },
+    "Common Contents": {
+        "1": "Common Contents"
+    },
+    "User List": {
+        "1": "User List"
+    },
+    "S.NO": "S.NO",
+    "Site Code": "Site Code",
+    "Unassigned Code": "Unassigned Code",
+    "Assigned Code": "Assigned Code",
+    "Generate Code": "Generate Code",
+    "Delete": "Delete",
+    "Detail": "Detail",
+    "Edit": "Edit",
+    "Username": "Username",
+    "Company Name": "Company Name",
+    "Phone Number": "Phone Number",
+    "Site Name": "Site Name",
+    "Enabled": "Enabled",
+    "Set Time Period": "Set Time Period",
+    "Unassigned Site": "Unassigned Site",
+    "Assigned Site": "Assigned Site",
+    "Current Storage": "Current Storage",
+    "Online User": "Online User",
+    "Register": "Register",
+    "Period Start": "Period Start",
+    "Period End": "Period End",
+    "GPS Range(m)": "GPS Range(m)",
+    "Browse Time From": "Browse Time From",
+    "Browse Time To": "Browse Time To",
+    "Longitude": "Longitude",
+    "Latitude": "Latitude",
+    "QR Value": "QR Value",
+    "Create Site": {
+        "1": "Create Site"
+    },
+    "Reset Password": "Reset Password",
+    "Back to": "Back to",
+    "Admin": "Admin",
+    "Logged in User List": "Logged in User List",
+    "Device List": "Device List",
+    "Email": "Email",
+    "Full Name (Kana)": "Full Name (Kana)",
+    "Full Name (Kanji)": "Full Name (Kanji)",
+    "Date Of Register": "Date Of Register",
+    "Browse Date": "Browse Date",
+    "Create User": "Create User",
+    "Save": "Save",
+    "Device Type": "Device Type",
+    "Assign": "Assign",
+    "Edit Device Mapping": "Edit Device Mapping",
+    "Assign Device Mapping": "Assign Device Mapping",
+    "Title": "Title",
+    "Active": "Active",
+    "Upload Photo": "Upload Photo",
+    "Create": "Create",
+    "Generate": "Generate",
+    "Update Site": "Update Site",
+    "Print QR": "Print QR",
+    "Todays Date": "Today's Date",
+    "Time Period": "Time Period",
+    "Browse Time": "Browse Time",
+    "Full Name": "Full Name",
+    "KanaName": "Kananame",
+    "Status": "Status",
+    "Category": "Category",
+    "Change Type": "Change Type",
+    "Change Category": "Change Category",
+    "Changed Property": "Changed Property",
+    "Site User SmartPhone": "Site User SmartPhone"
 }

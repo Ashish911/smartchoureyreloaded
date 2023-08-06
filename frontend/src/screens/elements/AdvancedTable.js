@@ -27,7 +27,6 @@ const CheckBoxInput = React.forwardRef(
                     toggleRowSelected()
                 }
                 // toggleRowSelected(!isSelected)
-                console.log('ok')
             }}>
                 <input type='checkbox' checked={isSelected} onChange={() => null} />
                 <span className='dw-checkmark'/>
@@ -36,7 +35,7 @@ const CheckBoxInput = React.forwardRef(
     }
 )
 
-const AdvancedTable = ({columns, data, createText, createFunction, enableSelect, enableEdit, editFunction, detailFunction, deleteFunction}) => {
+const AdvancedTable = ({columns, data, createText, createFunction, enableSelect, enableEdit, editFunction, detailFunction, multiDeleteFunction}) => {
     
     const mandatoryColumns = [
         {
@@ -47,7 +46,9 @@ const AdvancedTable = ({columns, data, createText, createFunction, enableSelect,
                 </a>
             ),
             Cell: ({row}) => (
-                <a onClick={detailFunction}
+                <a onClick={() => {
+                    detailFunction(row)
+                }}
                 className="inline-flex items-center justify-center px-4 py-1 space-x-1 
                 bg-gray-200 rounded-md shadow hover:bg-opacity-20">
                     <FaSearch />
@@ -63,7 +64,9 @@ const AdvancedTable = ({columns, data, createText, createFunction, enableSelect,
                 </a>
             ),
             Cell: ({row}) => (
-                <a onClick={deleteFunction}
+                <a onClick={() => {
+                    multiDeleteFunction(row)
+                }}
                 className="inline-flex items-center justify-center px-4 py-1 space-x-1 
                 bg-gray-200 rounded-md shadow hover:bg-opacity-20">
                     <CiCircleRemove />
@@ -133,7 +136,9 @@ const AdvancedTable = ({columns, data, createText, createFunction, enableSelect,
                             </a>
                         ),
                         Cell: ({row}) => (
-                            <a onClick={editFunction}
+                            <a onClick={() => {
+                                editFunction(row)
+                            }}
                             className="inline-flex items-center justify-center px-4 py-1 space-x-1 
                             bg-gray-200 rounded-md shadow hover:bg-opacity-20">
                                 <FaSearch />
@@ -151,8 +156,13 @@ const AdvancedTable = ({columns, data, createText, createFunction, enableSelect,
     )
 
     useEffect(() => {
-
-    }, [])
+        if (selectedFlatRows.length > 0) {
+            let selectData = []
+            selectedFlatRows.map((id) => {
+                selectData.push(id.original.id)
+            })
+        }
+    }, [selectedFlatRows])
 
     return (
         <>
@@ -161,6 +171,18 @@ const AdvancedTable = ({columns, data, createText, createFunction, enableSelect,
                 globalFilter={state.globalFilter}
                 setGlobalFilter= {setGlobalFilter}
             />
+            <div>
+            {selectedFlatRows.length > 0 ?
+                <a
+                className="inline-flex items-center justify-center px-4 py-1 mr-2 space-x-1 
+                bg-gray-200 rounded-md shadow hover:bg-opacity-20" onClick={() => {
+                    multiDeleteFunction(selectedFlatRows)
+                }}>
+                    <span>Delete Selected</span>
+                </a>
+            :
+                ''
+            }
             {createText != undefined
             ? 
                 <a
@@ -171,6 +193,8 @@ const AdvancedTable = ({columns, data, createText, createFunction, enableSelect,
             :
                 ''
             }
+            </div>
+            
         </div>
         <div className="flex flex-col">
             <div className="overflow-x-auto">
@@ -217,7 +241,6 @@ const AdvancedTable = ({columns, data, createText, createFunction, enableSelect,
                                 {row.cells.map(cell => {
                                 return (
                                     <td
-                                    onClick={() => console.log(cell)}
                                     {...cell.getCellProps()}
                                     className="px-6 py-4 text-sm text-gray-800 whitespace-nowrap"
                                     >

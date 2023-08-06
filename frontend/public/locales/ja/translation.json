@@ -79,5 +79,114 @@
     },
     "Site Detail": {
         "1": "サイト詳細"
-    }
+    },
+    "Dashboard": {
+        "1": "トップ画面"
+    },
+    "User Board": {
+        "1": "トップ画面"
+    },
+    "Menu Name": {
+        "1": "メニュー名"
+    },
+    "Safety Declaration": {
+        "1": "安全宣言"
+    },
+    "Report": {
+        "1": "レポート"
+    },
+    "CHOUREY Print": {
+        "1": "朝礼 印刷"
+    },
+    "Sub Admin": {
+        "1": "サブ管理者"
+    },
+    "Site Code Registration": "サイトコード登録",
+    "Site Code Information": "サイトコード情報",
+    "Create Site": "サイトを作成",
+    "Chourey 1": "朝礼 １",
+    "Chourey 2": "朝礼 2",
+    "Disaster": "災害事例",
+    "Update": "更新",
+    "User Access": "ユーザーアクセス",
+    "Smartphone: User Access": "スマホ：ユーザーアクセス",
+    "SP: Safety Declaration": "スマホ：安全宣言",
+    "Operation Log": "操作ログ",
+    "Search": "検索",
+    "Device Mapping": {
+        "1": "デバイスマッピング"
+    },
+    "Sites Storage": {
+        "1": "現場保管"
+    },
+    "Common Contents": {
+        "1": "共通コンテンツ"
+    },
+    "User List": {
+        "1": "ユーザーリスト"
+    },
+    "S.NO": "S.NO",
+    "Site Code": "サイト コード",
+    "Unassigned Code": "割り当てられていないコード",
+    "Assigned Code": "割り当てられたコード",
+    "Generate Code": "コードの生成",
+    "Delete": "消去",
+    "Detail": "詳細",
+    "Edit": "編集",
+    "Username": "ユーザー名",
+    "Company Name": "会社名",
+    "Phone Number": "電話番号",
+    "Site Name": "サイト名",
+    "Enabled": "有効",
+    "Set Time Period": "期間の設定",
+    "Unassigned Site": "割り当てられていないサイト",
+    "Assigned Site": "割り当てられたサイト",
+    "Current Storage": "現在のストレージ",
+    "Online User": "オンライン ユーザー",
+    "Register": "登録",
+    "Period Start": "期間開始",
+    "Period End": "期末",
+    "GPS Range(m)": "GPS範囲(m)",
+    "Browse Time From": "閲覧開始時刻",
+    "Browse Time To": "閲覧する",
+    "Longitude": "経度",
+    "Latitude": "緯度",
+    "QR Value": "QR値",
+    "Create Site": {
+        "1": "サイトを作成"
+    },
+    "Reset Password": "パスワードを再設定する",
+    "Back to": "戻る",
+    "Admin": "管理者",
+    "Logged in User List": "ログインユーザーリスト",
+    "Device List": "デバイスリスト",
+    "Email": "Eメール",
+    "Full Name (Kana)": "氏名（カナ）",
+    "Full Name (Kanji)": "氏名（漢字）",
+    "Date Of Register": "登録日",
+    "Browse Date": "閲覧日",
+    "Create User": "ユーザーを作成",
+    "Save": "保存",
+    "Device Type": "デバイスタイプ",
+    "Assign": "割当",
+    "Edit Device Mapping": "デバイスマッピングの編集",
+    "Assign Device Mapping": "デバイスマッピングの割り当て",
+    "Title": "タイトル",
+    "Active": "アクティブ",
+    "Upload Photo": "写真をアップする",
+    "Create": "作成",
+    "Generate": "生成",
+    "Update Site": "更新サイト",
+    "Print QR": "QRを印刷する",
+    "Todays Date": "今日の日付",
+    "Time Period": "期間",
+    "Browse Time": "閲覧時間",
+    "Full Name": "フルネーム",
+    "KanaName": "カナメ",
+    "Status": "スターテス",
+    "Category": "カテゴリー",
+    "Change Type": "タイプの変更",
+    "Change Category": "カテゴリの変更",
+    "Changed Property": "変更されたプロパティ",
+    "Site User SmartPhone": "サイトユーザーのスマートフォン"
 }

@@ -1,0 +1,34 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Logic\**" />
+    <EmbeddedResource Remove="Logic\**" />
+    <None Remove="Logic\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SmartChourey.DAL\SmartChourey.DAL.csproj" />
+    <ProjectReference Include="..\SmartChourey.Domain\SmartChourey.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
+    <PackageReference Include="EntityFramework" Version="6.4.4" />
+    <PackageReference Include="HtmlAgilityPack" Version="1.11.46" />
+    <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.1.22" />
+    <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Http.Extensions" Version="2.1.21" />
+    <PackageReference Include="Microsoft.AspNetCore.Http.Features" Version="3.1.32" />
+    <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="7.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Identity.Core" Version="6.0.15" />
+    <PackageReference Include="Microsoft.Extensions.Identity.Stores" Version="6.0.15" />
+    <PackageReference Include="System.Device.Location.Portable" Version="1.0.0" />
+  </ItemGroup>
+
+</Project>
