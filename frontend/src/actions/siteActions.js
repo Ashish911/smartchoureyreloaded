@@ -512,6 +512,7 @@ export const assignSiteSpaceFunction = (id, siteName, siteStorage) => async (dis
             type: ASSIGN_SITE_SPACE_SUCCESS,
             payload: data
         })
+        dispatch(getAllAggregateSiteSpaces())
     } catch (error) {
         dispatch({
             type: ASSIGN_SITE_SPACE_FAIL,

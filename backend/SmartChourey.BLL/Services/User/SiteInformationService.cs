@@ -38,7 +38,7 @@ namespace SmartChourey.BLL.Services.User
 
         public async Task<SiteInformation> GetSiteById(string siteId)
         {
-            var result = await _siteInformationRepository.Table.FirstOrDefaultAsync(x => x.Id == siteId);
+            var result = _siteInformationRepository.Table.Where(x => x.Id == siteId).FirstOrDefault();
             return result;
         }
     }
